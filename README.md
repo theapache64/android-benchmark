@@ -2,7 +2,7 @@
 
 ## Result
 
-> 3 runs of 15 iteration (both 5.2.0 and 6.1.0)
+> 3 runs of 15 iterations (both 5.2.0 and 6.1.0)
 
 ```
 # 5_2_0 - first run
@@ -44,6 +44,10 @@ Traces: Iteration 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
 
 ## Benchart
 
-> Copy paste the above data to https://theapache64.github.io/benchart/ to get below charts
+> Copy and paste the above data to https://theapache64.github.io/benchart/ to get the below charts
+
+![image](https://github.com/theapache64/lottie-benchmark/assets/9678279/5504daa8-c65f-4fc8-93e4-c8623f42ff9e)
+
+
 
 
