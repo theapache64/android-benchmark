@@ -14,21 +14,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor() : ViewModel() {
-
-    companion object {
-        private const val SPLASH_DURATION_IN_MILLIS = 1500L
-    }
-
     private val _versionName = MutableStateFlow("v${BuildConfig.VERSION_NAME}")
     val versionName: StateFlow<String> = _versionName
-
-    private val _isSplashFinished = mutableEventFlow<Boolean>()
-    val isSplashFinished: SharedFlow<Boolean> = _isSplashFinished
-
-    init {
-        viewModelScope.launch {
-            delay(SPLASH_DURATION_IN_MILLIS)
-            _isSplashFinished.emit(true)
-        }
-    }
 }

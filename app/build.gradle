@@ -72,4 +72,7 @@ dependencies {
 
     // Compose Navigation : Compose integration with Navigation
     implementation 'androidx.navigation:navigation-compose:2.7.0-beta02'
+
+    // Lottie Compose : Lottie for Jetpack Compose.
+    implementation 'com.airbnb.android:lottie-compose:6.1.0'
 }
