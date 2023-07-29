@@ -20,17 +20,9 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
         // Press home button before each run to ensure the starting activity isn't visible.
         pressHome()
 
-        startActivityAndWait(
-            Intent()
-                .putExtra(
-                    MainActivity.KEY_RENDER_ACTION_NAME,
-                    renderAction.name
-                ).setAction("com.theapache64.androidbenchmark.MainActivity")
-        )
     }
 ) {
     // starts default launch activity
-
     startActivityAndWait(
         Intent()
             .putExtra(

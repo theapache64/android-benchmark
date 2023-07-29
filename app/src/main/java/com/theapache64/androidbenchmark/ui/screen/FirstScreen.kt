@@ -46,7 +46,7 @@ fun FirstScreen(
                 RenderAction.VECTOR_COIL -> VectorCoil()
                 RenderAction.VECTOR_COMPOSE -> VectorCompose()
                 RenderAction.PNG_COIL -> PngCoil()
-                RenderAction.PNG_COMPOSE -> PngCoil()
+                RenderAction.PNG_COMPOSE -> PngCompose()
                 RenderAction.WEBP_COIL -> WebPCoil()
                 RenderAction.WEBP_COMPOSE -> WebPCompose()
             }
