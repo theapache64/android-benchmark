@@ -4,7 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -12,22 +18,38 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.theapache64.androidbenchmark.R
 
+const val ACTION_CLICK_RENDER = "Render It!"
+
 @Composable
 fun FirstScreen(
     renderAction: RenderAction,
     onFirstScreenFinished: () -> Unit, // TODO:
 ) {
+
+
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        when (renderAction) {
-            RenderAction.VECTOR_COIL -> VectorCoil()
-            RenderAction.VECTOR_COMPOSE -> VectorCompose()
-            RenderAction.PNG_COIL -> PngCoil()
-            RenderAction.PNG_COMPOSE -> PngCoil()
-            RenderAction.WEBP_COIL -> WebPCoil()
-            RenderAction.WEBP_COMPOSE -> WebPCompose()
+        var isRenderClicked by remember { mutableStateOf(false) }
+
+        Button(
+            onClick = {
+                isRenderClicked = true
+            }
+        ) {
+            Text(text = ACTION_CLICK_RENDER)
+        }
+
+        if (isRenderClicked) {
+            when (renderAction) {
+                RenderAction.VECTOR_COIL -> VectorCoil()
+                RenderAction.VECTOR_COMPOSE -> VectorCompose()
+                RenderAction.PNG_COIL -> PngCoil()
+                RenderAction.PNG_COMPOSE -> PngCoil()
+                RenderAction.WEBP_COIL -> WebPCoil()
+                RenderAction.WEBP_COMPOSE -> WebPCompose()
+            }
         }
     }
 }

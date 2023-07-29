@@ -56,7 +56,7 @@ class AllBenchmarks {
         startActivityAndWait(
             Intent()
                 .putExtra(
-                    MainActivity.KEY_RENDER_ACTION,
+                    MainActivity.KEY_RENDER_ACTION_NAME,
                     renderAction
                 ).setAction("com.theapache64.androidbenchmark.MainActivity")
         )

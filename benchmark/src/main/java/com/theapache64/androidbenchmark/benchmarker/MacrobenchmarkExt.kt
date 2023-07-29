@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
+import com.theapache64.androidbenchmark.ui.screen.ACTION_CLICK_RENDER
 import com.theapache64.androidbenchmark.ui.screen.MainActivity
 import com.theapache64.androidbenchmark.ui.screen.RenderAction
 
@@ -12,22 +13,31 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     metrics = listOf(
         FrameTimingMetric()
     ),
-    iterations = 15,
+    iterations = 5,
     startupMode = StartupMode.COLD,
     setupBlock = {
         // Press home button before each run to ensure the starting activity isn't visible.
         pressHome()
+
+        startActivityAndWait(
+            Intent()
+                .putExtra(
+                    MainActivity.KEY_RENDER_ACTION_NAME,
+                    renderAction.name
+                ).setAction("com.theapache64.androidbenchmark.MainActivity")
+        )
     }
 ) {
     // starts default launch activity
-    startActivityAndWait(
-        Intent()
-            .putExtra(
-                MainActivity.KEY_RENDER_ACTION,
-                renderAction
-            ).setAction("com.theapache64.androidbenchmark.MainActivity")
+    waitForUiElementByText(
+        text = ACTION_CLICK_RENDER,
+        onFound = { button ->
+            button.click()
+        },
+        onTimeout = {
+            errorNotFound()
+        }
     )
-
 
     /*// wait for "Hello World"
     device.wait(

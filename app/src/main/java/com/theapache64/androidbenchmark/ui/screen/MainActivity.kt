@@ -1,8 +1,5 @@
 package com.theapache64.androidbenchmark.ui.screen
 
-import android.content.Context
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
-import java.io.Serializable
 
 enum class RenderAction {
     VECTOR_COIL,
@@ -31,20 +27,16 @@ enum class RenderAction {
 class MainActivity : ComponentActivity() {
 
     companion object {
-        const val KEY_RENDER_ACTION = "render_action"
-        fun createIntent(context: Context, renderAction: RenderAction): Intent {
-            return Intent(context, MainActivity::class.java).apply {
-                putExtra(KEY_RENDER_ACTION, renderAction)
-            }
-        }
+        const val KEY_RENDER_ACTION_NAME = "render_action_name"
     }
 
     @OptIn(ExperimentalComposeUiApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val renderAction = intent.serializable(KEY_RENDER_ACTION)
-            ?: RenderAction.PNG_COIL // default action
+        val renderActionName = intent.getStringExtra(KEY_RENDER_ACTION_NAME)
+            ?: error("No render action passed") // default action
+        val renderAction = RenderAction.valueOf(renderActionName)
 
         setContent {
             Android_BenchmarkTheme {
@@ -71,11 +63,5 @@ class MainActivity : ComponentActivity() {
             )
         }
     }
-
-    inline fun <reified T : Serializable> Intent.serializable(key: String): T? = when {
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getSerializableExtra(key, T::class.java)
-        else -> @Suppress("DEPRECATION") getSerializableExtra(key) as? T
-    }
-
 
 }
