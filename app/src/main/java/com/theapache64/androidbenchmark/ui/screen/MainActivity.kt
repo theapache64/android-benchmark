@@ -13,6 +13,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
+import coil.compose.AsyncImage
+import com.theapache64.androidbenchmark.R
 import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,4 +44,6 @@ class MainActivity : ComponentActivity() {
             })
         }
     }
+
+
 }
