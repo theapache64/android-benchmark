@@ -13,8 +13,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
-import com.theapache64.androidbenchmark.ui.screen.dashboard.DashboardScreen
-import com.theapache64.androidbenchmark.ui.screen.splash.SplashScreen
 import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +35,7 @@ class MainActivity : ComponentActivity() {
     private fun AppNavigation() {
         var isSplashFinished by remember { mutableStateOf(false) }
         if (isSplashFinished) {
-            DashboardScreen()
+            SecondScreen()
         } else {
             SplashScreen(onSplashFinished = {
                 isSplashFinished = true

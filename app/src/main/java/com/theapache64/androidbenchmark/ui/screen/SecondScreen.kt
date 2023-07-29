@@ -1,4 +1,4 @@
-package com.theapache64.androidbenchmark.ui.screen.dashboard
+package com.theapache64.androidbenchmark.ui.screen
 
 import androidx.activity.compose.ReportDrawn
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import com.theapache64.androidbenchmark.R
 
 
 @Composable
-fun DashboardScreen() {
+fun SecondScreen() {
     ReportDrawn()
 
     Box(

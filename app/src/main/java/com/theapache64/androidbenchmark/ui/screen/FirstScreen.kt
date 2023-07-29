@@ -1,4 +1,4 @@
-package com.theapache64.androidbenchmark.ui.screen.splash
+package com.theapache64.androidbenchmark.ui.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
