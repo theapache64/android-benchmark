@@ -6,6 +6,6 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "lottie-benchmark"
+rootProject.name = "android-benchmark"
 include ':app'
 include ':benchmark'
