@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark
+package com.theapache64.androidbenchmark
 
 import android.app.Application
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.theapache64.lottiebenchmark.benchmarker'
+    namespace 'com.theapache64.androidbenchmark.benchmarker'
     compileSdk 34
 
     compileOptions {

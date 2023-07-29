@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark
+package com.theapache64.androidbenchmark
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

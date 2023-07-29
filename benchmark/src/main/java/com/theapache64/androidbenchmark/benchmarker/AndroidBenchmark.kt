@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark.benchmarker
+package com.theapache64.androidbenchmark.benchmarker
 
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
@@ -7,15 +7,13 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.Until
-import junit.framework.TestCase.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import kotlin.time.Duration.Companion.seconds
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class LottieBenchmark {
+class AndroidBenchmark {
     @get:Rule
     val benchmarkRule = MacrobenchmarkRule()
 
@@ -25,7 +23,7 @@ class LottieBenchmark {
 
     @Test
     fun startup() = benchmarkRule.measureRepeated(
-        packageName = "com.theapache64.lottiebenchmark",
+        packageName = "com.theapache64.androidbenchmark",
         metrics = listOf(
             FrameTimingMetric()
         ),

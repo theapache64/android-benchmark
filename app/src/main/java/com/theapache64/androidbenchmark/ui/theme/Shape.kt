@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark.ui.theme
+package com.theapache64.androidbenchmark.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

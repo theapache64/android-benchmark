@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark.ui.screen
+package com.theapache64.androidbenchmark.ui.screen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,9 +13,9 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
-import com.theapache64.lottiebenchmark.ui.screen.dashboard.DashboardScreen
-import com.theapache64.lottiebenchmark.ui.screen.splash.SplashScreen
-import com.theapache64.lottiebenchmark.ui.theme.Lottie_BenchmarkTheme
+import com.theapache64.androidbenchmark.ui.screen.dashboard.DashboardScreen
+import com.theapache64.androidbenchmark.ui.screen.splash.SplashScreen
+import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Lottie_BenchmarkTheme {
+            Android_BenchmarkTheme {
                 Surface(modifier = Modifier.semantics {
                     testTagsAsResourceId = true
                 }) {

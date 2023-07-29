@@ -1,4 +1,4 @@
-package com.theapache64.lottiebenchmark.ui.screen.dashboard
+package com.theapache64.androidbenchmark.ui.screen.dashboard
 
 import androidx.activity.compose.ReportDrawn
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
-import com.theapache64.lottiebenchmark.R
+import com.theapache64.androidbenchmark.R
 
 
 @Composable
