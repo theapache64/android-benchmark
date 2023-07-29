@@ -5,6 +5,7 @@ import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import com.theapache64.androidbenchmark.ui.screen.ACTION_CLICK_RENDER
+import com.theapache64.androidbenchmark.ui.screen.LABEL_FINISHED_RENDERING
 import com.theapache64.androidbenchmark.ui.screen.MainActivity
 import com.theapache64.androidbenchmark.ui.screen.RenderAction
 import kotlin.time.Duration.Companion.seconds
@@ -20,9 +21,10 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
         // Press home button before each run to ensure the starting activity isn't visible.
         pressHome()
 
+
     }
 ) {
-    // starts default launch activity
+
     startActivityAndWait(
         Intent()
             .putExtra(
@@ -31,16 +33,28 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
             ).setAction("com.theapache64.androidbenchmark.MainActivity")
     )
 
-    /*waitForUiElementByText(
+    // starts default launch activity
+    waitForUiElementByText(
         text = ACTION_CLICK_RENDER,
         onFound = { button ->
             button.click()
+
+            waitForUiElementByText(
+                text = LABEL_FINISHED_RENDERING,
+                onFound = {
+                    println(":launchWith: rendering finished")
+                },
+                onTimeout = {
+                    errorNotFound()
+                },
+                timeout = 20.seconds
+            )
         },
         onTimeout = {
             errorNotFound()
         },
         timeout = 20.seconds
-    )*/
+    )
 
     /*// wait for "Hello World"
     device.wait(

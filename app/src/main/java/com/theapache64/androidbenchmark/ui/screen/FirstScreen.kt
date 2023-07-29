@@ -2,6 +2,7 @@ package com.theapache64.androidbenchmark.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
@@ -19,6 +20,7 @@ import coil.compose.AsyncImage
 import com.theapache64.androidbenchmark.R
 
 const val ACTION_CLICK_RENDER = "Render It!"
+const val LABEL_FINISHED_RENDERING = "FINISHED RENDERING!"
 
 @Composable
 fun FirstScreen(
@@ -26,92 +28,129 @@ fun FirstScreen(
     onFirstScreenFinished: () -> Unit, // TODO:
 ) {
 
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        /*var isRenderClicked by remember { mutableStateOf(false) }
+        var isRenderClicked by remember { mutableStateOf(false) }
+        var isFinishedRendering by remember { mutableStateOf(false) }
 
-        Button(
-            onClick = {
-                isRenderClicked = true
+        if (!isRenderClicked) {
+            Button(
+                onClick = {
+                    isRenderClicked = true
+                }
+            ) {
+                Text(text = ACTION_CLICK_RENDER)
             }
-        ) {
-            Text(text = ACTION_CLICK_RENDER)
-        }*/
+        }
 
-        // if (isRenderClicked) {
-            when (renderAction) {
-                RenderAction.VECTOR_COIL -> VectorCoil()
-                RenderAction.VECTOR_COMPOSE -> VectorCompose()
-                RenderAction.PNG_COIL -> PngCoil()
-                RenderAction.PNG_COMPOSE -> PngCompose()
-                RenderAction.WEBP_COIL -> WebPCoil()
-                RenderAction.WEBP_COMPOSE -> WebPCompose()
+        Column {
+            if (isRenderClicked) {
+                val callback = {
+                    isFinishedRendering = true
+                }
+                when (renderAction) {
+                    RenderAction.VECTOR_COIL -> VectorCoil(callback)
+                    RenderAction.VECTOR_COMPOSE -> VectorCompose(callback)
+                    RenderAction.PNG_COIL -> PngCoil(callback)
+                    RenderAction.PNG_COMPOSE -> PngCompose(callback)
+                    RenderAction.WEBP_COIL -> WebPCoil(callback)
+                    RenderAction.WEBP_COMPOSE -> WebPCompose(callback)
+                }
             }
-        // }
+
+            if (isFinishedRendering) {
+                Text(text = LABEL_FINISHED_RENDERING)
+            }
+
+        }
     }
 }
 
 // Phase - 1
 // Vector - Coil
 @Composable
-fun VectorCoil() {
+fun VectorCoil(
+    isRenderingFinished: () -> Unit,
+) {
     AsyncImage(
-        model = R.drawable.mexicano_vector,
+        model = R.drawable.lion_vector,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
+        onSuccess = {
+            isRenderingFinished()
+        }
     )
 }
 
 // Vector - Compose
 @Composable
-fun VectorCompose() {
+fun VectorCompose(
+    isRenderingFinished: () -> Unit,
+) {
     Image(
-        painter = painterResource(id = R.drawable.mexicano_vector),
+        painter = painterResource(id = R.drawable.lion_vector),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
+    isRenderingFinished()
 }
 
 // PNG - Coil
 @Composable
-fun PngCoil() {
+fun PngCoil(
+    isRenderingFinished: () -> Unit,
+) {
     AsyncImage(
-        model = R.drawable.mexicano_webp,
+        model = R.drawable.lion_webp,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
+        onSuccess = {
+            isRenderingFinished()
+        }
     )
 }
 
 // PNG - Compose
 @Composable
-fun PngCompose() {
+fun PngCompose(
+    isRenderingFinished: () -> Unit,
+) {
+    println(":PngCompose: composed!")
     Image(
-        painter = painterResource(id = R.drawable.mexicano_webp),
+        painter = painterResource(id = R.drawable.lion_webp),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
+    isRenderingFinished()
 }
 
 // Phase - 2
 // WebP - Coil
 @Composable
-fun WebPCoil() {
+fun WebPCoil(
+    isRenderingFinished: () -> Unit,
+) {
     AsyncImage(
-        model = R.drawable.mexicano_webp,
+        model = R.drawable.lion_webp,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
+        onSuccess = {
+            isRenderingFinished()
+        }
     )
 }
 
 // WebP - Compose
 @Composable
-fun WebPCompose() {
+fun WebPCompose(
+    isRenderingFinished: () -> Unit,
+) {
     Image(
-        painter = painterResource(id = R.drawable.mexicano_webp),
+        painter = painterResource(id = R.drawable.lion_webp),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
+    isRenderingFinished()
 }

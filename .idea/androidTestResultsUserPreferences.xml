@@ -54,6 +54,7 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_28" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="UO5L9PLVSSFQIBZL" value="120" />
                   <entry key="Xiaomi&#10; 220733SI" value="120" />
@@ -180,10 +181,14 @@
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
+                  <entry key="14011JEC203443" value="120" />
+                  <entry key="320119ca20de15d7" value="120" />
                   <entry key="Duration" value="90" />
+                  <entry key="Google&#10; Pixel 4a" value="120" />
                   <entry key="Tests" value="360" />
                   <entry key="UO5L9PLVSSFQIBZL" value="120" />
                   <entry key="Xiaomi&#10; 220733SI" value="120" />
+                  <entry key="samsung&#13;&#10; SM-J200G" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
