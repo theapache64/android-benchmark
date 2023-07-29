@@ -31,7 +31,7 @@ enum class RenderAction {
 class MainActivity : ComponentActivity() {
 
     companion object {
-        private const val KEY_RENDER_ACTION = "render_action"
+        const val KEY_RENDER_ACTION = "render_action"
         fun createIntent(context: Context, renderAction: RenderAction): Intent {
             return Intent(context, MainActivity::class.java).apply {
                 putExtra(KEY_RENDER_ACTION, renderAction)

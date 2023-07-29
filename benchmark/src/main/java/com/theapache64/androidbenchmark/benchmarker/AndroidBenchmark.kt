@@ -1,5 +1,6 @@
 package com.theapache64.androidbenchmark.benchmarker
 
+import android.content.Intent
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
@@ -7,6 +8,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.Until
+import com.theapache64.androidbenchmark.ui.screen.MainActivity
+import com.theapache64.androidbenchmark.ui.screen.RenderAction
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,12 +25,12 @@ class AndroidBenchmark {
     }
 
     @Test
-    fun startup() = benchmarkRule.measureRepeated(
+    fun vectorCoil() = benchmarkRule.measureRepeated(
         packageName = "com.theapache64.androidbenchmark",
         metrics = listOf(
             FrameTimingMetric()
         ),
-        iterations = 15,
+        iterations = 5,
         startupMode = StartupMode.COLD,
         setupBlock = {
             // Press home button before each run to ensure the starting activity isn't visible.
@@ -35,7 +38,12 @@ class AndroidBenchmark {
         }
     ) {
         // starts default launch activity
-        startActivityAndWait()
+        startActivityAndWait(
+            Intent().putExtra(
+                MainActivity.KEY_RENDER_ACTION,
+                RenderAction.VECTOR_COIL
+            )
+        )
 
         // wait for "Hello World"
         device.wait(
