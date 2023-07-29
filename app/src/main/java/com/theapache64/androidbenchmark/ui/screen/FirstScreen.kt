@@ -57,7 +57,7 @@ fun VectorCompose() {
 @Composable
 fun PngCoil() {
     AsyncImage(
-        model = R.drawable.mexicano_png,
+        model = R.drawable.mexicano_webp,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
@@ -67,7 +67,7 @@ fun PngCoil() {
 @Composable
 fun PngCompose() {
     Image(
-        painter = painterResource(id = R.drawable.mexicano_png),
+        painter = painterResource(id = R.drawable.mexicano_webp),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
