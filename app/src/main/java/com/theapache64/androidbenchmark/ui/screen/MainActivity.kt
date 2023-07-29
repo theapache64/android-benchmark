@@ -38,6 +38,8 @@ class MainActivity : ComponentActivity() {
             ?: error("No render action passed") // default action
         val renderAction = RenderAction.valueOf(renderActionName)
 
+        println("MainActivity:onCreate: renderAction: $renderAction")
+
         setContent {
             Android_BenchmarkTheme {
                 Surface(modifier = Modifier.semantics {

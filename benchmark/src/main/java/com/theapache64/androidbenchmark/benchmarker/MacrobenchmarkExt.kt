@@ -7,6 +7,7 @@ import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import com.theapache64.androidbenchmark.ui.screen.ACTION_CLICK_RENDER
 import com.theapache64.androidbenchmark.ui.screen.MainActivity
 import com.theapache64.androidbenchmark.ui.screen.RenderAction
+import kotlin.time.Duration.Companion.seconds
 
 fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     packageName = "com.theapache64.androidbenchmark",
@@ -29,15 +30,25 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     }
 ) {
     // starts default launch activity
-    waitForUiElementByText(
+
+    startActivityAndWait(
+        Intent()
+            .putExtra(
+                MainActivity.KEY_RENDER_ACTION_NAME,
+                renderAction.name
+            ).setAction("com.theapache64.androidbenchmark.MainActivity")
+    )
+
+    /*waitForUiElementByText(
         text = ACTION_CLICK_RENDER,
         onFound = { button ->
             button.click()
         },
         onTimeout = {
             errorNotFound()
-        }
-    )
+        },
+        timeout = 20.seconds
+    )*/
 
     /*// wait for "Hello World"
     device.wait(

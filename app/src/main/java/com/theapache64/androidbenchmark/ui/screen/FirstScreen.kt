@@ -31,7 +31,7 @@ fun FirstScreen(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        var isRenderClicked by remember { mutableStateOf(false) }
+        /*var isRenderClicked by remember { mutableStateOf(false) }
 
         Button(
             onClick = {
@@ -39,9 +39,9 @@ fun FirstScreen(
             }
         ) {
             Text(text = ACTION_CLICK_RENDER)
-        }
+        }*/
 
-        if (isRenderClicked) {
+        // if (isRenderClicked) {
             when (renderAction) {
                 RenderAction.VECTOR_COIL -> VectorCoil()
                 RenderAction.VECTOR_COMPOSE -> VectorCompose()
@@ -50,7 +50,7 @@ fun FirstScreen(
                 RenderAction.WEBP_COIL -> WebPCoil()
                 RenderAction.WEBP_COMPOSE -> WebPCompose()
             }
-        }
+        // }
     }
 }
 
