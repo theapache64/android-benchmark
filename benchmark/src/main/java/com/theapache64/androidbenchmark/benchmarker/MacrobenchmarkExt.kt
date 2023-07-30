@@ -15,7 +15,7 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     metrics = listOf(
         FrameTimingMetric()
     ),
-    iterations = 5,
+    iterations = 10,
     startupMode = StartupMode.COLD,
     setupBlock = {
         // Press home button before each run to ensure the starting activity isn't visible.
@@ -34,7 +34,7 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     )
 
     // starts default launch activity
-    waitForUiElementByText(
+    /*waitForUiElementByText(
         text = ACTION_CLICK_RENDER,
         onFound = { button ->
             button.click()
@@ -54,7 +54,7 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
             errorNotFound()
         },
         timeout = 20.seconds
-    )
+    )*/
 
     /*// wait for "Hello World"
     device.wait(

@@ -2,16 +2,9 @@ package com.theapache64.androidbenchmark.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -29,10 +22,19 @@ fun FirstScreen(
 ) {
 
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
     ) {
-        var isRenderClicked by remember { mutableStateOf(false) }
+
+        when (renderAction) {
+            RenderAction.VECTOR_COIL -> VectorCoil()
+            RenderAction.VECTOR_COMPOSE -> VectorCompose()
+            RenderAction.PNG_COIL -> PngCoil()
+            RenderAction.PNG_COMPOSE -> PngCompose()
+            RenderAction.WEBP_COIL -> WebPCoil()
+            RenderAction.WEBP_COMPOSE -> WebPCompose()
+        }
+
+        /*var isRenderClicked by remember { mutableStateOf(false) }
         var isFinishedRendering by remember { mutableStateOf(false) }
 
         if (!isRenderClicked) {
@@ -64,7 +66,7 @@ fun FirstScreen(
                 Text(text = LABEL_FINISHED_RENDERING)
             }
 
-        }
+        }*/
     }
 }
 
@@ -72,50 +74,39 @@ fun FirstScreen(
 // Vector - Coil
 @Composable
 fun VectorCoil(
-    isRenderingFinished: () -> Unit,
 ) {
     AsyncImage(
         model = R.drawable.lion_vector,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
-        onSuccess = {
-            isRenderingFinished()
-        }
     )
 }
 
 // Vector - Compose
 @Composable
 fun VectorCompose(
-    isRenderingFinished: () -> Unit,
 ) {
     Image(
         painter = painterResource(id = R.drawable.lion_vector),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
-    isRenderingFinished()
 }
 
 // PNG - Coil
 @Composable
 fun PngCoil(
-    isRenderingFinished: () -> Unit,
 ) {
     AsyncImage(
         model = R.drawable.lion_webp,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
-        onSuccess = {
-            isRenderingFinished()
-        }
     )
 }
 
 // PNG - Compose
 @Composable
 fun PngCompose(
-    isRenderingFinished: () -> Unit,
 ) {
     println(":PngCompose: composed!")
     Image(
@@ -123,34 +114,27 @@ fun PngCompose(
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
-    isRenderingFinished()
 }
 
 // Phase - 2
 // WebP - Coil
 @Composable
 fun WebPCoil(
-    isRenderingFinished: () -> Unit,
 ) {
     AsyncImage(
         model = R.drawable.lion_webp,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
-        onSuccess = {
-            isRenderingFinished()
-        }
     )
 }
 
 // WebP - Compose
 @Composable
 fun WebPCompose(
-    isRenderingFinished: () -> Unit,
 ) {
     Image(
         painter = painterResource(id = R.drawable.lion_webp),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
-    isRenderingFinished()
 }
