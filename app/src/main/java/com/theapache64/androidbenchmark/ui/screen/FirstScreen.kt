@@ -98,7 +98,7 @@ fun VectorCompose(
 fun PngCoil(
 ) {
     AsyncImage(
-        model = R.drawable.lion_webp,
+        model = R.drawable.lion_png,
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
@@ -110,7 +110,7 @@ fun PngCompose(
 ) {
     println(":PngCompose: composed!")
     Image(
-        painter = painterResource(id = R.drawable.lion_webp),
+        painter = painterResource(id = R.drawable.lion_png),
         modifier = Modifier.size(300.dp, 300.dp),
         contentDescription = null,
     )
