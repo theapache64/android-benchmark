@@ -21,7 +21,11 @@ enum class RenderAction {
     PNG_COIL,
     PNG_COMPOSE,
     WEBP_COIL,
-    WEBP_COMPOSE
+    WEBP_COMPOSE,
+
+    VECTOR_SEARCH,
+    WEBP_SEARCH,
+    PNG_SEARCH
 }
 
 class MainActivity : ComponentActivity() {

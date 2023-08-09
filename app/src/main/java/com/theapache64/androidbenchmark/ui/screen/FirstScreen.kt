@@ -32,6 +32,9 @@ fun FirstScreen(
             RenderAction.PNG_COMPOSE -> PngCompose()
             RenderAction.WEBP_COIL -> WebPCoil()
             RenderAction.WEBP_COMPOSE -> WebPCompose()
+            RenderAction.VECTOR_SEARCH -> VectorSearch()
+            RenderAction.WEBP_SEARCH -> WebPSearch()
+            RenderAction.PNG_SEARCH -> PngSearch()
         }
 
         /*var isRenderClicked by remember { mutableStateOf(false) }
@@ -81,6 +84,36 @@ fun VectorCoil(
         contentDescription = null,
     )
 }
+
+@Composable
+fun VectorSearch(
+) {
+    AsyncImage(
+        model = R.drawable.search_no_result_vector,
+        modifier = Modifier.size(300.dp, 300.dp),
+        contentDescription = null,
+    )
+}
+
+@Composable
+fun PngSearch() {
+    AsyncImage(
+        model = R.drawable.search_no_result_png,
+        modifier = Modifier.size(300.dp, 300.dp),
+        contentDescription = null,
+    )
+}
+
+@Composable
+fun WebPSearch(
+) {
+    AsyncImage(
+        model = R.drawable.search_no_result_webp,
+        modifier = Modifier.size(300.dp, 300.dp),
+        contentDescription = null,
+    )
+}
+
 
 // Vector - Compose
 @Composable
