@@ -17,6 +17,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1532255783">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Google Pixel 4a" value="120" />
+                  <entry key="Pixel_4_API_28" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1205499224">
           <value>
             <AndroidTestResultsTableState>
@@ -86,6 +100,21 @@
                   <entry key="Google&#10; Pixel 4a" value="120" />
                   <entry key="Pixel_4_API_28" value="120" />
                   <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1444969781">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Google Pixel 4a" value="120" />
+                  <entry key="Pixel_4_API_28" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 220733SI" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>

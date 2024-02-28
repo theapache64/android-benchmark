@@ -1,0 +1,18 @@
+{
+ "added": [
+  {
+   "id": 1,
+   "type": "implementation",
+   "installed_name": "okhttp",
+   "gpm_dep": {
+    "artifact_id": "okhttp",
+    "default_type": "implementation",
+    "docs": "https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp",
+    "get_from": "Central",
+    "group_id": "com.squareup.okhttp3",
+    "name": "OkHttp",
+    "description": "Square’s meticulous HTTP client for Java and Kotlin."
+   }
+  }
+ ]
+}
