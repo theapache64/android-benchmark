@@ -1,0 +1,18 @@
+{
+ "added": [
+  {
+   "id": 1,
+   "type": "implementation",
+   "installed_name": "lottie-compose",
+   "gpm_dep": {
+    "artifact_id": "lottie-compose",
+    "default_type": "implementation",
+    "docs": "https://mvnrepository.com/artifact/com.airbnb.android/lottie-compose",
+    "get_from": "Central",
+    "group_id": "com.airbnb.android",
+    "name": "Lottie Compose",
+    "description": "Lottie for Jetpack Compose."
+   }
+  }
+ ]
+}

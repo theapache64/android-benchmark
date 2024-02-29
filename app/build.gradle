@@ -64,4 +64,7 @@ dependencies {
 
     // Coil Compose : An image loading library for Android backed by Kotlin Coroutines.
     implementation 'io.coil-kt:coil-compose:2.4.0'
+
+    // Lottie Compose : Lottie for Jetpack Compose.
+    implementation 'com.airbnb.android:lottie-compose:5.2.0'
 }

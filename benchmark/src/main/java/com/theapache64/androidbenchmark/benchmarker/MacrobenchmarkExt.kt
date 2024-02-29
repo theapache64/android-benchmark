@@ -4,13 +4,10 @@ import android.content.Intent
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
-import com.theapache64.androidbenchmark.ui.screen.ACTION_CLICK_RENDER
-import com.theapache64.androidbenchmark.ui.screen.LABEL_FINISHED_RENDERING
 import com.theapache64.androidbenchmark.ui.screen.MainActivity
-import com.theapache64.androidbenchmark.ui.screen.RenderAction
-import kotlin.time.Duration.Companion.seconds
+import com.theapache64.androidbenchmark.ui.screen.VectorType
 
-fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
+fun MacrobenchmarkRule.launchWith(vectorType: VectorType) = measureRepeated(
     packageName = "com.theapache64.androidbenchmark",
     metrics = listOf(
         FrameTimingMetric()
@@ -27,8 +24,8 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
     startActivityAndWait(
         Intent()
             .putExtra(
-                MainActivity.KEY_RENDER_ACTION_NAME,
-                renderAction.name
+                MainActivity.KEY_LOTTIE_TYPE,
+                vectorType.name
             ).setAction("com.theapache64.androidbenchmark.MainActivity")
     )
 
