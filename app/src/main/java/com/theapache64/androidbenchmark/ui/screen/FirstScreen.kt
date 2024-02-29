@@ -2,6 +2,7 @@ package com.theapache64.androidbenchmark.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -11,6 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.theapache64.androidbenchmark.R
+import kotlin.system.measureTimeMillis
 
 const val ACTION_CLICK_RENDER = "Render It!"
 const val LABEL_FINISHED_RENDERING = "FINISHED RENDERING!"
@@ -33,6 +35,20 @@ fun FirstScreen(
             RenderAction.WEBP_COIL -> WebPCoil()
             RenderAction.WEBP_COMPOSE -> WebPCompose()
         }
+
+        /*Column {
+            measureTimeMillis {
+                PngCoil()
+            }.let {
+                println("PngCoil:: took $it ms")
+            }
+
+            measureTimeMillis {
+                PngCompose()
+            }.let {
+                println("PngCompose:: took $it ms")
+            }
+        }*/
 
         /*var isRenderClicked by remember { mutableStateOf(false) }
         var isFinishedRendering by remember { mutableStateOf(false) }
