@@ -26,7 +26,6 @@ class AndroidBenchmark {
     fun startup() = benchmarkRule.measureRepeated(
         packageName = "com.theapache64.androidbenchmark",
         metrics = listOf(
-            FrameTimingMetric(),
             StartupTimingMetric()
         ),
         iterations = 5,
@@ -34,8 +33,6 @@ class AndroidBenchmark {
         setupBlock = {
             // Press home button before each run to ensure the starting activity isn't visible.
             pressHome()
-
-
         }
     ) {
         // starts default launch activity
