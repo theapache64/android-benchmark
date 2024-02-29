@@ -45,6 +45,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1532255783">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Google Pixel 4a" value="120" />
+                  <entry key="Pixel_4_API_28" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1205499224">
           <value>
             <AndroidTestResultsTableState>
@@ -133,6 +147,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="349739036">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="UO5L9PLVSSFQIBZL" value="120" />
+                  <entry key="Xiaomi&#10; 220733SI" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="927401822">
           <value>
             <AndroidTestResultsTableState>
@@ -168,6 +196,7 @@
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
+<<<<<<< HEAD
                   <entry key="Tests" value="360" />
                   <entry key="UO5L9PLVSSFQIBZL" value="120" />
                   <entry key="Xiaomi&#10; 220733SI" value="120" />
@@ -203,6 +232,12 @@
                   <entry key="UO5L9PLVSSFQIBZL" value="120" />
                   <entry key="Xiaomi&#10; 220733SI" value="120" />
                   <entry key="samsung&#13;&#10; SM-J200G" value="120" />
+=======
+                  <entry key="Google Pixel 4a" value="120" />
+                  <entry key="Pixel_4_API_28" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 220733SI" value="120" />
+>>>>>>> master
                 </map>
               </option>
             </AndroidTestResultsTableState>

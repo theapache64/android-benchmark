@@ -21,7 +21,6 @@ fun MacrobenchmarkRule.launchWith(renderAction: RenderAction) = measureRepeated(
         // Press home button before each run to ensure the starting activity isn't visible.
         pressHome()
 
-
     }
 ) {
 
