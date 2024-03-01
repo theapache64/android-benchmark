@@ -66,5 +66,6 @@ dependencies {
     implementation 'io.coil-kt:coil-compose:2.4.0'
 
     // Lottie Compose : Lottie for Jetpack Compose.
-    implementation 'com.airbnb.android:lottie-compose:5.2.0'
+    // implementation 'com.airbnb.android:lottie-compose:5.2.0'
+    implementation 'com.airbnb.android:lottie-compose:4.0.0'
 }

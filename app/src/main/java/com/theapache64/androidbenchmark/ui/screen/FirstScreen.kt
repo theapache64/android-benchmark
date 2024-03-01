@@ -29,8 +29,8 @@ fun FirstScreen(
 
         val resId = when (vectorType) {
             LottieType.SMALL -> R.raw.small
-            LottieType.MEDIUM -> TODO()
-            LottieType.LARGE -> TODO()
+            LottieType.MEDIUM -> R.raw.medium
+            LottieType.LARGE -> R.raw.large
         }
 
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(resId))
@@ -39,10 +39,10 @@ fun FirstScreen(
         Column {
             LottieAnimation(
                 composition = composition,
-                progress = { progress },
+                progress = progress,
             )
 
-            if (progress == 1f) {
+            if (progress == 1.0f) {
                 Text(
                     text = "DONE",
                     modifier = Modifier
