@@ -1,23 +1,22 @@
 package com.theapache64.androidbenchmark.ui.screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.theapache64.androidbenchmark.R
 
-const val ACTION_CLICK_RENDER = "Render It!"
-const val LABEL_FINISHED_RENDERING = "FINISHED RENDERING!"
+const val TAG_DONE = "tag_done"
 
 @Composable
 fun FirstScreen(
@@ -35,6 +34,23 @@ fun FirstScreen(
         }
 
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(resId))
-        LottieAnimation(composition)
+        val progress by animateLottieCompositionAsState(composition)
+
+        Column {
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
+            )
+
+            if (progress == 1f) {
+                Text(
+                    text = "DONE",
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .testTag(TAG_DONE),
+                    fontSize = 20.sp
+                )
+            }
+        }
     }
 }
