@@ -3,14 +3,15 @@ package com.theapache64.androidbenchmark.benchmarker
 import android.content.Intent
 import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
+import androidx.benchmark.macro.StartupTimingMetric
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
-import com.theapache64.androidbenchmark.ui.screen.MainActivity
-import com.theapache64.androidbenchmark.ui.screen.VectorType
+import kotlin.time.Duration.Companion.seconds
 
-fun MacrobenchmarkRule.launchWith(vectorType: VectorType) = measureRepeated(
+fun MacrobenchmarkRule.launchWith(lottieType : String) = measureRepeated(
     packageName = "com.theapache64.androidbenchmark",
     metrics = listOf(
-        FrameTimingMetric()
+        FrameTimingMetric(),
+        StartupTimingMetric()
     ),
     iterations = 10,
     startupMode = StartupMode.COLD,
@@ -24,41 +25,20 @@ fun MacrobenchmarkRule.launchWith(vectorType: VectorType) = measureRepeated(
     startActivityAndWait(
         Intent()
             .putExtra(
-                MainActivity.KEY_LOTTIE_TYPE,
-                vectorType.name
+                "lottie_type",
+                lottieType
             ).setAction("com.theapache64.androidbenchmark.MainActivity")
     )
 
     // starts default launch activity
-    /*waitForUiElementByText(
-        text = ACTION_CLICK_RENDER,
-        onFound = { button ->
-            button.click()
-
-            waitForUiElementByText(
-                text = LABEL_FINISHED_RENDERING,
-                onFound = {
-                    println(":launchWith: rendering finished")
-                },
-                onTimeout = {
-                    errorNotFound()
-                },
-                timeout = 20.seconds
-            )
+    waitForUiElement(
+        testTag = "tag_done",
+        onFound = { tag ->
+            // do nothing
         },
         onTimeout = {
             errorNotFound()
         },
         timeout = 20.seconds
-    )*/
-
-    /*// wait for "Hello World"
-    device.wait(
-        Until.hasObject(By.res(TEST_TAG)),
-        10_000
     )
-    val uiElement = device.findObject(By.res(TEST_TAG))
-    require(uiElement != null) {
-        "uiElement is null for `$TEST_TAG`"
-    }*/
 }
