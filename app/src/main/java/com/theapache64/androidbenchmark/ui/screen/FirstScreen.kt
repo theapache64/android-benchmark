@@ -3,12 +3,14 @@ package com.theapache64.androidbenchmark.ui.screen
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -31,6 +33,7 @@ fun FirstScreen(
             LottieType.SMALL -> R.raw.small
             LottieType.MEDIUM -> R.raw.medium
             LottieType.LARGE -> R.raw.large
+            LottieType.SUPER_LARGE -> R.raw.super_large
         }
 
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(resId))
@@ -40,9 +43,10 @@ fun FirstScreen(
             LottieAnimation(
                 composition = composition,
                 progress = progress,
+                modifier = Modifier.size(300.dp)
             )
 
-            if (progress == 1.0f) {
+            if(progress==1.0f){
                 Text(
                     text = "DONE",
                     modifier = Modifier

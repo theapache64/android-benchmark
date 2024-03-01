@@ -8,9 +8,13 @@ import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import com.theapache64.androidbenchmark.ui.screen.LottieType
 import com.theapache64.androidbenchmark.ui.screen.MainActivity
 import com.theapache64.androidbenchmark.ui.screen.TAG_DONE
+import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
-fun MacrobenchmarkRule.launchWith(lottieType : LottieType) = measureRepeated(
+fun MacrobenchmarkRule.launchWith(
+    lottieType : LottieType,
+    timeout : Duration = 20.seconds
+) = measureRepeated(
     packageName = "com.theapache64.androidbenchmark",
     metrics = listOf(
         FrameTimingMetric(),
@@ -42,6 +46,6 @@ fun MacrobenchmarkRule.launchWith(lottieType : LottieType) = measureRepeated(
         onTimeout = {
             errorNotFound()
         },
-        timeout = 20.seconds
+        timeout = timeout
     )
 }

@@ -18,7 +18,8 @@ import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
 enum class LottieType {
     SMALL,
     MEDIUM,
-    LARGE
+    LARGE,
+    SUPER_LARGE
 }
 
 class MainActivity : ComponentActivity() {
