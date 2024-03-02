@@ -21,13 +21,15 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'release-rules.pro'
         }
         benchmark {
             signingConfig signingConfigs.debug
             matchingFallbacks = ['release']
             debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'benchmark-rules.pro'
         }
     }
     compileOptions {
@@ -45,7 +47,6 @@ android {
     }
     namespace 'com.theapache64.androidbenchmark'
 }
-
 dependencies {
 
     // Test
@@ -68,4 +69,6 @@ dependencies {
     // Lottie Compose : Lottie for Jetpack Compose.
     // implementation 'com.airbnb.android:lottie-compose:5.2.0'
     implementation 'com.airbnb.android:lottie-compose:4.0.0'
+    // implementation 'com.airbnb.android:lottie-compose:6.3.0'
 }
+
