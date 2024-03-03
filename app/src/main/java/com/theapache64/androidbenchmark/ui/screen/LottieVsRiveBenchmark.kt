@@ -5,12 +5,17 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.role
@@ -33,11 +38,6 @@ import com.theapache64.androidbenchmark.R
 @Composable
 fun LottieVsRiveBenchmark(renderType: LottieVsRiveKeys.Type) {
     println("QuickTag: :LottieVsRiveBenchmark: ")
-    val composition by rememberLottieComposition(
-        LottieCompositionSpec.RawRes(R.raw.progress_lottie)
-    )
-    val progress by animateLottieCompositionAsState(composition)
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = androidx.compose.ui.Alignment.Center
@@ -46,25 +46,53 @@ fun LottieVsRiveBenchmark(renderType: LottieVsRiveKeys.Type) {
         Column {
             when(renderType){
                 LottieVsRiveKeys.Type.Lottie -> {
+
+                    val composition by rememberLottieComposition(
+                        LottieCompositionSpec.RawRes(R.raw.progress_lottie)
+                    )
+                    val progress by animateLottieCompositionAsState(composition)
+
                     LottieAnimation(
                         composition = composition,
                         progress = { progress },
                         modifier = Modifier.size(300.dp)
                     )
+
+                    if(progress == 1.0f){
+                        DoneText()
+                    }
                 }
                 LottieVsRiveKeys.Type.Rive -> {
+                    var isFinished by remember { mutableStateOf(false) }
+
                     RiveAnimation(
                         modifier = Modifier.size(300.dp),
                         resId = R.raw.progress_rive,
                         autoplay = true,
                         fit = Fit.FILL,
                         alignment = Alignment.CENTER,
-                        loop = Loop.ONESHOT
+                        loop = Loop.ONESHOT,
+                        notifyStop = {
+                            isFinished = true
+                        }
                     )
+
+                    if(isFinished){
+                        DoneText()
+                    }
                 }
             }
         }
     }
+}
+
+@Composable
+private fun DoneText() {
+    Text(
+        text = "DONE",
+        modifier = Modifier
+            .testTag(LottieVsRiveKeys.TAG_DONE),
+    )
 }
 
 @Suppress("LongMethod")
