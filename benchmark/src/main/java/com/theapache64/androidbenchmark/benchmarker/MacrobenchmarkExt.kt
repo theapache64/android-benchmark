@@ -5,14 +5,11 @@ import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.StartupTimingMetric
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
-import com.theapache64.androidbenchmark.ui.screen.LottieType
-import com.theapache64.androidbenchmark.ui.screen.MainActivity
-import com.theapache64.androidbenchmark.ui.screen.TAG_DONE
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
 fun MacrobenchmarkRule.launchWith(
-    lottieType : LottieType,
+    lottieType : String,
     timeout : Duration = 20.seconds
 ) = measureRepeated(
     packageName = "com.theapache64.androidbenchmark",
@@ -32,14 +29,14 @@ fun MacrobenchmarkRule.launchWith(
     startActivityAndWait(
         Intent()
             .putExtra(
-                MainActivity.KEY_LOTTIE_TYPE,
-                lottieType.name
+                "lottie_type",
+                lottieType
             ).setAction("com.theapache64.androidbenchmark.MainActivity")
     )
 
     // starts default launch activity
     waitForUiElement(
-        testTag = TAG_DONE,
+        testTag = "tag_done",
         onFound = { tag ->
             // do nothing
         },
