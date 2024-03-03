@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.Role.Companion.Image
@@ -28,6 +30,7 @@ import app.rive.runtime.kotlin.core.Alignment
 import app.rive.runtime.kotlin.core.Fit
 import app.rive.runtime.kotlin.core.Loop
 import app.rive.runtime.kotlin.core.PlayableInstance
+import app.rive.runtime.kotlin.core.Rive
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
@@ -64,7 +67,6 @@ fun LottieVsRiveBenchmark(renderType: LottieVsRiveKeys.Type) {
                 }
                 LottieVsRiveKeys.Type.Rive -> {
                     var isFinished by remember { mutableStateOf(false) }
-
                     RiveAnimation(
                         modifier = Modifier.size(300.dp),
                         resId = R.raw.progress_rive,

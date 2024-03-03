@@ -76,5 +76,8 @@ dependencies {
 	// editor to create motion graphics that respond to different states and user inputs.
 	// Then load your animations into apps, games, and websites with our lightweight open-source
 	// runtimes.
-    implementation 'app.rive:rive-android:9.1.0'
+    implementation 'app.rive:rive-android:9.2.2'
+    // During initialization, you may need to add a dependency
+    // for Jetpack Startup
+    implementation "androidx.startup:startup-runtime:1.1.1"
 }

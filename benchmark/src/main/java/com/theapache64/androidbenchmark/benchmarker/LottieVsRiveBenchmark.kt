@@ -28,7 +28,7 @@ class LottieVsRiveBenchmark {
 private fun MacrobenchmarkRule.launchLottieVsRive(
     type : LottieVsRiveKeys.Type,
 ) = launchActivity(
-    benchmarkType = BenchmarkType.LottieRendering,
+    benchmarkType = BenchmarkType.LottieVsRive,
     data = mapOf(
         LottieVsRiveKeys.KEY_TYPE to type.name
     )

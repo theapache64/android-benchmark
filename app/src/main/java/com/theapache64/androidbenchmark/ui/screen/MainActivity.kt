@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
             ?: error("No benchmark type passed") // default action
         val benchmarkType = BenchmarkType.valueOf(benchmarkTypeName)
 
-        Rive.init(this)
 
         setContent {
             Android_BenchmarkTheme {
