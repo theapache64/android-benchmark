@@ -24,18 +24,15 @@ import com.theapache64.androidbenchmark.R
 
 
 @Composable
-fun LottieBenchmark() {
+fun LottieBenchmark(lottieType: LottieKeys.Type) {
 
-    val lottieTypeName =
-        (LocalContext.current as Activity).intent.getStringExtra(LottieKeys.KEY_TYPE)
-            ?: error("No lottie type passed") // default action
-    val vectorType = LottieKeys.Type.valueOf(lottieTypeName)
+
 
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
     ) {
 
-        val resId = when (vectorType) {
+        val resId = when (lottieType) {
             LottieKeys.Type.SMALL -> R.raw.small
             LottieKeys.Type.MEDIUM -> R.raw.medium
             LottieKeys.Type.LARGE -> R.raw.large

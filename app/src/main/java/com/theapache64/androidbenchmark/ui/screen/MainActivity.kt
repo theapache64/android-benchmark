@@ -1,15 +1,18 @@
 package com.theapache64.androidbenchmark.ui.screen
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Surface
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.github.theapache64.commonkeys.BenchmarkType
 import com.github.theapache64.commonkeys.KEY_BENCHMARK_TYPE
+import com.github.theapache64.commonkeys.LottieKeys
 import com.theapache64.androidbenchmark.ui.theme.Android_BenchmarkTheme
 
 
@@ -30,11 +33,15 @@ class MainActivity : ComponentActivity() {
                 }) {
                     when (benchmarkType) {
                         BenchmarkType.LottieRendering -> {
-                            LottieBenchmark()
+                            val lottieTypeName = intent.getStringExtra(LottieKeys.KEY_TYPE)
+                                    ?: error("No lottie type passed") // default action
+                            val lottieType = LottieKeys.Type.valueOf(lottieTypeName)
+
+                            LottieBenchmark(lottieType)
                         }
 
                         BenchmarkType.LottieVsRive -> {
-                            // TODO()
+                            LottieVsRiveBenchmark()
                         }
                     }
                 }
