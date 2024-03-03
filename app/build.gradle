@@ -66,6 +66,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     // Lottie Compose : Lottie for Jetpack Compose.
+    // implementation 'com.airbnb.android:lottie-compose:4.0.0'
     // implementation 'com.airbnb.android:lottie-compose:5.2.0'
     implementation 'com.airbnb.android:lottie-compose:6.3.0'
 }
