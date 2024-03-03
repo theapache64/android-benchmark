@@ -21,13 +21,16 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
         benchmark {
+            initWith release
             signingConfig signingConfigs.debug
             matchingFallbacks = ['release']
-            debuggable false
+            proguardFiles 'benchmark-rules.pro'
         }
     }
     compileOptions {
