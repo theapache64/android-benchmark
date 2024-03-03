@@ -1,4 +1,4 @@
-package com.theapache64.androidbenchmark.benchmarker
+package com.theapache64.androidbenchmark.benchmarker.util
 
 import android.os.SystemClock
 import androidx.annotation.StringRes
