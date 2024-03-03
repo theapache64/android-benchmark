@@ -8,6 +8,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
+import app.rive.runtime.kotlin.core.Rive
 import com.github.theapache64.commonkeys.BenchmarkType
 import com.github.theapache64.commonkeys.KEY_BENCHMARK_TYPE
 import com.github.theapache64.commonkeys.LottieKeys
@@ -24,6 +25,8 @@ class MainActivity : ComponentActivity() {
         val benchmarkTypeName = intent.getStringExtra(KEY_BENCHMARK_TYPE)
             ?: error("No benchmark type passed") // default action
         val benchmarkType = BenchmarkType.valueOf(benchmarkTypeName)
+
+        Rive.init(this)
 
         setContent {
             Android_BenchmarkTheme {
@@ -43,7 +46,8 @@ class MainActivity : ComponentActivity() {
                             val renderTypeName = intent.getStringExtra(LottieVsRiveKeys.KEY_TYPE)
                                 ?: error("No type passed") // default action
                             val renderType = LottieVsRiveKeys.Type.valueOf(renderTypeName)
-                            LottieVsRiveBenchmark()
+                            println("QuickTag: MainActivity:onCreate: FACEBOOk")
+                            LottieVsRiveBenchmark(renderType)
                         }
                     }
                 }

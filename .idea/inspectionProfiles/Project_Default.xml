@@ -7,6 +7,7 @@
     </inspection_tool>
     <inspection_tool class="PreviewApiLevelMustBeValid" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="ERROR" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
+      <option name="previewFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
     </inspection_tool>
     <inspection_tool class="PreviewDimensionRespectsLimit" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="WARNING" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
@@ -14,6 +15,7 @@
     </inspection_tool>
     <inspection_tool class="PreviewFontScaleMustBeGreaterThanZero" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="ERROR" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
+      <option name="previewFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
     </inspection_tool>
     <inspection_tool class="PreviewMultipleParameterProviders" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="ERROR" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
@@ -29,9 +31,11 @@
     </inspection_tool>
     <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="ERROR" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
+      <option name="previewFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
     </inspection_tool>
     <inspection_tool class="PreviewPickerAnnotation" enabled="$GRADLE_ENTERPRISE_DISABLE$" level="ERROR" enabled_by_default="$GRADLE_ENTERPRISE_DISABLE$">
       <option name="composableFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
+      <option name="previewFile" value="$GRADLE_ENTERPRISE_DISABLE$" />
     </inspection_tool>
   </profile>
 </component>

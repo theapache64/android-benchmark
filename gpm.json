@@ -13,6 +13,20 @@
     "name": "Lottie Compose",
     "description": "Lottie for Jetpack Compose."
    }
+  },
+  {
+   "id": 2,
+   "type": "implementation",
+   "installed_name": "rive-android",
+   "gpm_dep": {
+    "artifact_id": "rive-android",
+    "default_type": "implementation",
+    "docs": "https://mvnrepository.com/artifact/app.rive/rive-android",
+    "get_from": "Central",
+    "group_id": "app.rive",
+    "name": "Rive Android",
+    "description": "Rive is a real-time interactive design and animation tool. Use our collaborative editor to create motion graphics that respond to different states and user inputs. Then load your animations into apps, games, and websites with our lightweight open-source runtimes."
+   }
   }
  ]
 }
